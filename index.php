@@ -39,6 +39,7 @@
           <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
         </div>
       </div>
+		  
       <div class="full-width-split__two">
         <div class="full-width-split__inner">
           <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
