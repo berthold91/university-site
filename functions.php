@@ -1,5 +1,10 @@
 <?php
 
+function university_features(){
+    add_theme_support( 'title-tag' );
+}
+add_action('after_setup_theme', 'university_features');
+
 function loading_css_and_js() {
     wp_enqueue_style( 
 		'google-font', 
@@ -36,3 +41,4 @@ function loading_css_and_js() {
 }
 add_action( 'wp_enqueue_scripts', 'loading_css_and_js' );
 // get_parent_theme_file_uri
+
