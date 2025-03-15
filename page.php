@@ -1,3 +1,29 @@
+<?php
+/**if (is_page()) {
+  $page_id = get_queried_object_id();
+  $parent_id = wp_get_post_parent_id($page_id);
+  $child_args = array(
+      'child_of' => $parent_id,
+      'title_li' => __(''),
+      'echo'     => 0,
+  );
+
+  if ($parent_id) {
+      // this is a child page
+      $child_pages = wp_list_pages($child_args);
+      $parent_page = get_page($parent_id);
+      echo '<li class="page_item_has_children current_page_ancestor current_page_parent page_item page-item-' . $parent_id . '"><a href="' . get_page_link($parent_page) . '" >' . $parent_page->post_title . '</a><li>';
+  } else {
+      // this is a parent page, homepage or special page
+      $child_args['child_of'] = $page_id;
+      $child_pages = wp_list_pages($child_args);
+      $parent_page = get_page($page_id);
+      echo '<li class="page_item_has_children current_page_item page_item page-item-' . $page_id . '"><a href="' . get_page_link($parent_page) . '" >' . $parent_page->post_title . '</a><li>';
+  }
+  echo $child_pages; 
+}
+  */
+?>
 <?php get_header() ?>
 <div class="page-banner">
       <div
