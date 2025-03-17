@@ -42,3 +42,21 @@ function loading_css_and_js() {
 add_action( 'wp_enqueue_scripts', 'loading_css_and_js' );
 // get_parent_theme_file_uri
 
+function display_home_events($query){
+    if(!is_admin() AND $query->is_main_query() AND $query->is_post_type_archive('event')){
+        $query->set('post_type', 'event');
+        $query->set('posts_per_page', 2);
+        $query->set('orderby', 'meta_value_num');
+        $query->set('meta_key', 'event_date');
+        $query->set('order', 'ASC');
+        $query->set('meta_query', array(
+            array(
+              'key'=> 'event_date',
+              'compare' => '>=',
+              'value' => date('ymd'),
+              'type'  => 'numeric'
+            )
+          ));
+    }
+}
+add_action( 'pre_get_posts', 'display_home_events' ); 

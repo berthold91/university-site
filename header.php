@@ -16,7 +16,8 @@
             <ul>
               <li><a href=" <?= site_url('/about-us') ?> " >About Us</a></li>
               <li><a href="<?= site_url('/programs') ?>">Programs</a></li>
-              <li><a href="<?= site_url('/events') ?>">Events</a></li>
+              <li <?php if(get_post_type()=='event') echo "class = 'current-menu-item' " ?>>
+                <a href="<?= site_url('/events') ?>">Events</a></li>
               <li><a href="<?= site_url('campuses') ?>">Campuses</a></li>
               <li <?php if(get_post_type()=='post') echo "class = 'current-menu-item' " ?>>
                 <a href="<?= site_url('/blog') ?>">Blog</a>
